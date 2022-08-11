@@ -29,6 +29,6 @@ server.listen(PORT, () => {
     console.log("Listening on port: ", PORT)
 })
 
-server.use("/test", (req, res) => {
+server.use("*", (req, res) => {
     res.send(`<h1>Hello World!</h1>`)
 })
