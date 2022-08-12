@@ -23,12 +23,20 @@ const server = express()
 server.use(express.json())
 server.use(cors())
 
+const projectRouter = require("./api/projects/projects-router")
+server.use("/api/projects", projectRouter)
+
+
 const PORT = process.env.PORT || 9000
+
+
 
 server.listen(PORT, () => {
     console.log("Listening on port: ", PORT)
 })
 
-server.use("*", (req, res) => {
+
+server.use("/", (req, res) => {
     res.send(`<h1>Hello World!</h1>`)
 })
+
