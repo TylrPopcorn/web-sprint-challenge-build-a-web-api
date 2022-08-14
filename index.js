@@ -14,29 +14,10 @@ Pull your server into this file and start it!
 */
 //LOLLL wtf i geniuinely laughed at this^
 
-require('dotenv').config()
-
-const express = require("express")
-const cors = require("cors")
-const server = express()
-
-server.use(express.json())
-server.use(cors())
-
-const projectRouter = require("./api/projects/projects-router")
-server.use("/api/projects", projectRouter)
-
+const server = require("./api/server")
 
 const PORT = process.env.PORT || 9000
-
-
 
 server.listen(PORT, () => {
     console.log("Listening on port: ", PORT)
 })
-
-
-server.use("/", (req, res) => {
-    res.send(`<h1>Hello World!</h1>`)
-})
-
